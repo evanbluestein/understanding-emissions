@@ -267,6 +267,16 @@ wheels = [
 ]
 
 [[package]]
+name = "datamotion"
+version = "0.1.0"
+source = { git = "https://github.com/evanbluestein/datamotion?rev=v0.1.0#0da6cf0a81e0f62e1328b5f1a818e274869d8717" }
+dependencies = [
+    { name = "kaleido" },
+    { name = "pandas" },
+    { name = "plotly" },
+]
+
+[[package]]
 name = "debugpy"
 version = "1.8.22"
 source = { registry = "https://pypi.org/simple" }
@@ -1103,6 +1113,9 @@ dependencies = [
 dev = [
     { name = "ipykernel" },
 ]
+video = [
+    { name = "datamotion" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -1115,6 +1128,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [{ name = "ipykernel", specifier = ">=7.4.0" }]
+video = [{ name = "datamotion", git = "https://github.com/evanbluestein/datamotion?rev=v0.1.0" }]
 
 [[package]]
 name = "urllib3"

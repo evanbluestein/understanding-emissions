@@ -14,3 +14,35 @@ dependencies = [
 dev = [
     "ipykernel>=7.4.0",
 ]
+video = [
+    "datamotion",
+]
+
+[tool.uv.sources]
+datamotion = { git = "https://github.com/evanbluestein/datamotion", rev = "v0.1.0" }
+
+# Chart defaults for every notebook; any chart can override them with
+# line_chart(..., frame_size=, fps=, duration=, theme=, style=, layout=, animation=)
+[tool.datamotion]
+name = "understanding-emissions"   # prefix for every chart: <name>_<chart id>_v<NNN>
+output = "output/ae"               # one folder per chart, one subfolder per version
+frame_size = [1920, 1080]          # [3840, 2160] to uprez for finishing
+fps = 30
+duration = 14                      # seconds
+theme = "southwest-light"          # or "southwest-dark", "light", "dark" (datamotion's THEMES)
+
+# The look on top of the theme. Fonts need the After Effects PostScript name
+# and the preview (plotly) family name. Bodoni Moda (OFL, Google Fonts) and
+# Lato must be installed.
+[tool.datamotion.style]
+font_ae_bold = "BodoniModa-Bold"    # title, After Effects
+font_title_plotly = "Bodoni Moda"   # title, preview
+font_title_weight = 700
+font_ae = "Lato-Regular"            # everything else, After Effects
+font_plotly = "Lato"                # everything else, preview
+
+# Other overrides, e.g. a single color or line width
+# (series_colors replaces the whole list):
+# line_width = 4
+# background = "#EBD6CB"
+# series_colors = ["#B32639", "#007D9C", "#573D8E", "#9D712D", "#1F600C", "#C44CAF"]
